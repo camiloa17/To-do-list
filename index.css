@@ -1,0 +1,124 @@
+body{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #e8e8e8;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    width: 100%;
+    height: 50px;
+    background-color: #145374;
+}
+
+header p{
+    margin-top:0;
+}
+
+
+
+/*Caja de busqueda junto con el boton*/
+.SubmitTaskArea{
+    margin:0 auto;
+    width: 600px;
+    height:fit-content;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 4px 0 rgba(0,0,0,.16);
+    border-radius: 0.4rem;
+    text-align: center;
+}
+
+#newTask{
+    width:500px;
+    font-size: 20px;
+}
+
+#submitTask{
+    width:50px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#newTask,
+#submitTask{
+    border:0;
+    outline:none;
+    height:44px;
+}
+
+#newTask,
+#submitTask,
+.SubmitTaskArea{
+    padding:0;
+    background-color: #ffffff;
+}
+
+.SubmitTaskArea:hover,
+.SubmitTaskArea:focus-within{
+    box-shadow: 0 12.8px 22.8px rgba(0,0,0,.22), 0 2.4px 7.2px rgba(0,0,0,.18);
+}
+
+
+/*----------Area de lista------------------------------------------------------------------*/
+
+/*making the list be on the left of the center.*/
+.listwrapper { 
+    width: 600px;
+    margin:0 auto;
+    margin-top:30px;
+    
+}
+
+ul{
+    padding: 0;
+    text-align: left;
+}
+li{
+    list-style: none;
+    background-color: #f3f1f1;
+    display: flex;
+    justify-items:flex-start;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 0.4rem;
+    
+}
+
+li button{
+    margin-left:auto;
+    margin-right:25px;
+    background-color:#f3f1f1;
+    border:0;
+    outline:none;
+    height: 50px; 
+    width: 44px;
+    cursor: pointer;
+    font-size: 15px;
+
+}
+
+li input {
+    margin-right: 20px;
+    height: 25px; 
+    width: 25px;
+    border:0;
+    background-color:#ffffff;
+
+}
+
+li span{
+    word-wrap: break-word;
+}
+
+
+
+
+/*Clase para agregar el line-through cuando se completa la task.*/
+.hecho {
+    text-decoration: line-through;
+}
+
+
+

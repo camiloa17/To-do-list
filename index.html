@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>To do List</title>
+</head>
+<body>
+    <header>
+    </header>
+    <main>
+            <h1>Ingresa lo que Quieres Hacer</h1>
+            <div class="SubmitTaskArea">
+                <input type="text" id="newTask" placeholder="Escribe tu proxima actividad"> 
+                <button id="submitTask">+</button>
+            </div>
+            <div class="listwrapper" id="listArea"> 
+                <ul id="listParent">
+
+                </ul>
+            </div>
+        
+    </main>
+    
+</body>
+<script src="datos.js"></script>
+<script src="negocio.js"></script>
+<script src="todoitem.js"></script>
+<script src="vista.js"></script>
+<script> 
+    let _datos = new Datos();
+    let _negocio = new Negocio(_datos);
+    let _vista = new Vista(_negocio);
+</script>
+
+</html>
