@@ -48,6 +48,8 @@ class Vista {
         this.negocio.actualizarItem(elementoAActualizar.attr('id'), estado);
     }
 
+    
+
 }
 
 

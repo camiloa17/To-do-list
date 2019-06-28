@@ -116,7 +116,7 @@ li span{
 
 
 /*Clase para agregar el line-through cuando se completa la task.*/
-.hecho {
+.hecho span {
     text-decoration: line-through;
 }
 
