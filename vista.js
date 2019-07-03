@@ -5,14 +5,24 @@ class Vista {
         //Evento de Click en el boton agregar un task
         $('#submitTask').on("click", () => {
             let textoInput = $('#newTask').val();
-            if (textoInput != '') {
-                let item = this.negocio.crearItem(textoInput);
-                $('#newTask').val('');
-                this.crearArrayLis(item);
-            }
+            this.submitItem(textoInput);
+        });
+        //Evento enter
+        $('#newTask').keydown((tecla) => {
+            if (tecla.originalEvent.key === 'Enter') {
+                let textoInput = $('#newTask').val();
+                this.submitItem(textoInput);
+            };
         });
     }
 
+    submitItem(item) {
+        if (item != '') {
+            let itemACrear = this.negocio.crearItem(item);
+            $('#newTask').val('');
+            this.crearArrayLis(itemACrear);
+        }
+    }
     crearArrayLis(array) {
         let newArray = [];
         array.forEach(item => {
@@ -54,12 +64,12 @@ class Vista {
         let heading2 = '<h2>Completed</h2>';
         let ul = '<ul id ="listParent"></ul>';
         let ulCompleted = '<ul id ="listCompleted"></ul>';
-        $('#listArea').append([heading1,ul,heading2,ulCompleted]);
+        $('#listArea').append([heading1, ul, heading2, ulCompleted]);
 
         newArray.forEach(li => {
-            if ($(li).attr("class")==="hecho"){
+            if ($(li).attr("class") === "hecho") {
                 $('#listCompleted').append(li);
-            }else{
+            } else {
                 $('#listParent').append(li);
             }
         });
