@@ -46,14 +46,23 @@ class Vista {
     }
 
 
-
     agregarDom(newArray) {
         $('#listParent').remove()
-        let ul = '<ul id ="listParent"></ul>'
-        $('#listArea').append(ul);
+        $('#listCompleted').remove()
+        $('#listArea h2').remove()
+        let heading1 = '<h2>Not Completed</h2>';
+        let heading2 = '<h2>Completed</h2>';
+        let ul = '<ul id ="listParent"></ul>';
+        let ulCompleted = '<ul id ="listCompleted"></ul>';
+        $('#listArea').append([heading1,ul,heading2,ulCompleted]);
+
         newArray.forEach(li => {
-            $('#listParent').append(li)
-        })
+            if ($(li).attr("class")==="hecho"){
+                $('#listCompleted').append(li);
+            }else{
+                $('#listParent').append(li);
+            }
+        });
     }
 
 
