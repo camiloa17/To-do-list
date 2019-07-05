@@ -14,17 +14,26 @@ class Vista {
                 this.submitItem(textoInput);
             };
         });
+
+        $('document').ready(()=>{
+            if(localStorage.getItem("arr")){
+                this.negocio.sacarDatos();
+                this.crearArrayList();
+            }
+        });
+        
     }
 
     submitItem(item) {
         if (item != '') {
-            let itemACrear = this.negocio.crearItem(item);
+            this.negocio.crearItem(item);
             $('#newTask').val('');
-            this.crearArrayLis(itemACrear);
+            this.crearArrayList()
         }
     }
-    crearArrayLis(array) {
-        let newArray = [];
+    crearArrayList() {
+        let array = this.negocio.ordenarArray()
+        let newArray = [] ;
         array.forEach(item => {
             let botton = $('<button>X</button>');
             //Pasa el scope y evento en el click en el boton de la x
@@ -52,9 +61,7 @@ class Vista {
         });
 
         this.agregarDom(newArray);
-
     }
-
 
     agregarDom(newArray) {
         $('#listParent').remove()
@@ -80,6 +87,7 @@ class Vista {
         let elementoAEliminar = $(event.target.parentElement);
         elementoAEliminar.remove();
         this.negocio.eliminarItem(elementoAEliminar.attr('id'));
+        this.crearArrayList();
     }
 
     actualizarElementoDom(checkbox) {
@@ -90,8 +98,8 @@ class Vista {
         } else {
             elementoAActualizar.removeClass('hecho');
         }
-        let array = this.negocio.actualizarItem(elementoAActualizar.attr('id'), estado);
-        this.crearArrayLis(array);
+        this.negocio.actualizarItem(elementoAActualizar.attr('id'), estado);
+        this.crearArrayList();
 
     }
 }
